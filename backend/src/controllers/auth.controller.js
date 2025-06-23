@@ -92,9 +92,9 @@ export async function login(req, res){
             secure : process.env.NODE_ENV === "production"
         });
 
-        res.status(201).json({
+        res.status(200).json({
             success : true,
-            user : newUser
+            user : user
         });
     } catch (error) {
         console.log("Error in login Controller :", error.message);
@@ -104,5 +104,9 @@ export async function login(req, res){
     }
 }
 export async function logout(req, res){
-    res.send("logout Route");
+    res.clearCookie("jwt");
+    res.status(200).json({
+        success : true,
+        message : "Logout Successfully!"
+    });
 }
