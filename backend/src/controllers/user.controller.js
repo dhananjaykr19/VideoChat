@@ -154,3 +154,7 @@ export async function getFriendRequests(req, res) {
         
     }
 }
+
+export async function getOutgoingRequest(req, res) {
+    
+}
