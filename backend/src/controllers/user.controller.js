@@ -136,3 +136,21 @@ export async function acceptFriendRequest(req, res) {
         });
     }
 }
+
+export async function getFriendRequests(req, res) {
+    try {
+        const incomingReqs = await FriendRequest.find({
+            recipient : req.user._id,
+            status : "pending",
+        }).populate("sender", "fullName profilePic nativeLanguage learningLanguage location");
+
+        const acceptRequest = await FriendRequest.find({
+            sender : req.user._id,
+            status : "accepted"
+        }).populate("recipient", "fullName profilePic");
+
+        res.status(200).json({incomingReqs, acceptRequest});
+    } catch (error) {
+        
+    }
+}
