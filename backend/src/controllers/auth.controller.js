@@ -151,6 +151,17 @@ export async function onboard(req, res) {
             });
         }
 
+        try {
+            await upsertStreamUser({
+                id : updatedUser._id.toString(),
+                name : updatedUser.fullName,
+                image : updatedUser.profilePic || "",
+            });
+            console.log(`Stream user updated after onboarding for ${updatedUser.fullName}`);
+        } catch (streamError) {
+            console.error("Error updating Stream user during onboarding : ", streamError.message);
+        }
+
         res.status(200).json({
             success : true,
             user : updatedUser
