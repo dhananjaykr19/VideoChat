@@ -20,4 +20,6 @@ app.use("/api/auth", authRoutes);
 import userRouter from "./routes/user.route.js";
 app.use("/api/user", userRouter);
 
+import chatRouter from "./routes/chat.route.js";
+app.use("/api/chat", chatRouter);
 export { app };
