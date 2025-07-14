@@ -29,10 +29,10 @@ const App = () => {
           path="/" element = {isAuthenticated && isOnboarded ? (<HomePage/>) : (<Navigate to={isAuthenticated ? "/login" : "/onboarding"} />) } 
         />
         <Route 
-          path="/signup" element = {!isAuthenticated ? <SignUpPage /> : <Navigate to="/" /> } 
+          path="/signup" element = {!isAuthenticated ? <SignUpPage /> : <Navigate to={isOnboarded ? "/" : "/onboarding"} /> } 
         />
         <Route 
-          path="/login" element = {!isAuthenticated ? <LoginPage /> : <Navigate to="/" /> } 
+          path="/login" element = {!isAuthenticated ? <LoginPage /> : <Navigate to={isOnboarded ? "/" : "/onboarding"} /> } 
         />
         <Route 
           path="/notification" element = {isAuthenticated ? <NotificationPage /> : <Navigate to="/login" /> } 
