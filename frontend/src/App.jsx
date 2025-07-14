@@ -20,13 +20,13 @@ const App = () => {
   const isOnboarded = authUser?.isOnboarded;
 
   if(isLoading) 
-    return <PageLoader />
+    return <PageLoader />;
 
   return (
     <div className="h-screen" data-theme="night">
       <Routes>
         <Route 
-          path="/" element = {isAuthenticated ? <HomePage/> : <Navigate to="/login" /> } 
+          path="/" element = {isAuthenticated && isOnboarded ? (<HomePage/>) : (<Navigate to={isAuthenticated ? "/login" : "/onboarding"} />) } 
         />
         <Route 
           path="/signup" element = {!isAuthenticated ? <SignUpPage /> : <Navigate to="/" /> } 
