@@ -73,7 +73,7 @@ const LoginPage = () => {
                                             placeholder="********"
                                             className='input input-bordered w-full'
                                             value={loginData.password}
-                                            onChange={(e) => setLoginData({...loginData, password : e.target.password})}
+                                            onChange={(e) => setLoginData({...loginData, password : e.target.value})}
                                         />
                                     </div>
                                     <button type="submit" className="btn btn-primary w-full" disabled={isPending}>
