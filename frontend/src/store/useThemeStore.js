@@ -1,5 +1,8 @@
 import { create } from "zustand";
 export const useThemeStore = create((set) => ({
-    theme : "coffee",
-    setTheme : (theme) => set({theme}),
+    theme : localStorage.getItem("videoChat-theme") || "coffee",
+    setTheme : (theme) => {
+        localStorage.setItem("videoChat-theme", theme);
+        set({theme});
+    },
 }));
