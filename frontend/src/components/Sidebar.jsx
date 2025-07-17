@@ -37,9 +37,9 @@ const Sidebar = () => {
                     <span>Friends</span>
                 </Link>
                 <Link
-                    to="/notifications"
+                    to="/notification"
                     className={`btn btn-ghost justify-start w-full gap-3 px-3 normal-case ${
-                        currentPath === "/notifications" ? "btn-active" : ""
+                        currentPath === "/notification" ? "btn-active" : ""
                     }`}
                 >
                     <BellIcon className='size-5 text-base-content opacity-70' />
