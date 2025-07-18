@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 export async function getRecommendedUsers(req, res) {
     try {
-        const currentUserId = req.user._id;
+        const currentUserId = req.user.id;
         // const currentUser = await User.findById(currentUserId);
         const currentUser = req.user;
 
