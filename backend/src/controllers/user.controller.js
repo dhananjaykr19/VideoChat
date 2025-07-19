@@ -105,7 +105,7 @@ export async function acceptFriendRequest(req, res) {
         }
 
         // verify the current user is recipient
-        if(friendRequest.recipient.toString() !== req.user._id){
+        if(friendRequest.recipient.toString() !== req.user.id){
             return res.status(403).json({
                 message : "You are not authorized to accept this request"
             });
